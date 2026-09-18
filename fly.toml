@@ -2,7 +2,9 @@
 # First deploy:
 #   fly launch --no-deploy --copy-config --name gaskiya
 #   fly volumes create gaskiya_data --size 1 --region lhr
-#   fly secrets set DEEPSEEK_API_KEY=sk-... MSISDN_SALT=$(openssl rand -hex 24) DASHBOARD_TOKEN=$(openssl rand -hex 12)
+#   fly secrets set DEEPSEEK_API_KEY=sk-... MSISDN_SALT=$(openssl rand -hex 24)
+#   (DASHBOARD_TOKEN is deliberately not set for the hackathon demo so judges can open /dashboard.
+#    Set it before any real use.)
 #   fly deploy
 # Then point the Qrios app callback URL at https://gaskiya.fly.dev
 app = "gaskiya"
