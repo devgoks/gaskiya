@@ -1,0 +1,8 @@
+{
+  "NG": { "areas": { "NG-LA": "Lagos", "NG-KN": "Kano", "NG-BO": "Borno", "NG-FC": "Abuja FCT", "NG-KD": "Kaduna", "NG-RI": "Rivers", "NG-PL": "Plateau", "NG-BE": "Benue" }, "defaultLang": "en" },
+  "KE": { "areas": { "KE-NA": "Nairobi", "KE-MO": "Mombasa", "KE-TU": "Turkana", "KE-KI": "Kisumu", "KE-GA": "Garissa" }, "defaultLang": "sw" },
+  "CD": { "areas": { "CD-NK": "Goma / Nord-Kivu", "CD-SK": "Bukavu / Sud-Kivu", "CD-KN": "Kinshasa", "CD-IT": "Bunia / Ituri" }, "defaultLang": "fr" },
+  "SD": { "areas": { "SD-KH": "Khartoum", "SD-DF": "El Fasher / Darfur", "SD-PS": "Port Sudan", "SD-GZ": "Wad Madani / Gezira" }, "defaultLang": "ar" },
+  "MZ": { "areas": { "MZ-CD": "Pemba / Cabo Delgado", "MZ-MP": "Maputo", "MZ-NP": "Nampula" }, "defaultLang": "pt" },
+  "ML": { "areas": { "ML-BK": "Bamako", "ML-GA": "Gao", "ML-MO": "Mopti" }, "defaultLang": "fr" }
+}

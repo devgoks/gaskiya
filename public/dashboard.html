@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gaskiya moderator desk</title>
+<style>
+  :root { --bg:#f6f4ee; --panel:#fff; --ink:#1d1f24; --muted:#6b7080; --accent:#b57f00; --ok:#2f8f5b; --warn:#c0392b; --line:#e5e1d6; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.45 -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding:16px 24px; background:#1d1f24; color:#f3efe2; display:flex; gap:16px; align-items:baseline; flex-wrap:wrap; }
+  header h1 { margin:0; font-size:19px; } header h1 span { color:#e0a300; }
+  header .sub { color:#a9adb8; font-size:13px; }
+  header a { color:#e0a300; margin-left:auto; }
+  .banner { background:#fff4d6; border-bottom:1px solid #f0d89a; color:#6b4f00; padding:8px 24px; font-size:13px; }
+  main { padding:20px 24px 60px; max-width:1300px; }
+  .tiles { display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:12px; margin-bottom:22px; }
+  .tile { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
+  .tile b { display:block; font-size:24px; } .tile span { color:var(--muted); font-size:12.5px; text-transform:uppercase; letter-spacing:.5px; }
+  h2 { font-size:16px; margin:26px 0 10px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:12px; }
+  .card.high { border-left:5px solid var(--warn); } .card.medium { border-left:5px solid var(--accent); } .card.low { border-left:5px solid #b8c4d0; }
+  .card h3 { margin:0 0 4px; font-size:15px; } .meta { color:var(--muted); font-size:13px; }
+  .rep { border-top:1px dashed var(--line); padding:8px 0 4px; font-size:14px; }
+  .rep .orig { color:var(--muted); font-size:13px; }
+  .actions { margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; }
+  button { padding:8px 12px; border-radius:8px; border:1px solid var(--line); background:#fff; cursor:pointer; font-weight:600; }
+  button.primary { background:#1d1f24; color:#fff; border-color:#1d1f24; } button.warn { color:var(--warn); }
+  table { width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); border-radius:12px; overflow:hidden; font-size:14px; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; } th { background:#faf8f2; color:var(--muted); font-size:12.5px; text-transform:uppercase; letter-spacing:.4px; }
+  .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; font-weight:600; background:#eee; }
+  .pill.CONFIRMED { background:#dff3e6; color:var(--ok); } .pill.CONTRADICTED { background:#fde3df; color:var(--warn); } .pill.UNVERIFIED { background:#f0ecdf; color:#7a5f00; }
+  .pill.open { background:#fff1c9; color:#6b4f00; } .pill.verified { background:#dff3e6; color:var(--ok); } .pill.dismissed { background:#eee; color:#666; }
+  dialog { border:0; border-radius:14px; padding:0; width:min(640px, 94vw); }
+  dialog form { padding:20px 22px; display:grid; gap:10px; }
+  dialog label { display:grid; gap:4px; font-size:13px; color:var(--muted); }
+  dialog input, dialog textarea { padding:9px 10px; border:1px solid var(--line); border-radius:8px; font:inherit; }
+  .empty { color:var(--muted); font-style:italic; }
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+</style>
+</head>
+<body>
+<header>
+  <h1><span>Gaskiya</span> moderator desk</h1>
+  <div class="sub" id="aiState">…</div>
+  <a href="/">USSD simulator</a>
+</header>
+<div class="banner" id="banner">Sample content mode: seed notices are modelled on real institutional notices for the proof of concept. Replace with the ingestion pipeline before any public use.</div>
+<main>
+  <div class="tiles" id="tiles"></div>
+
+  <h2>Report clusters <span class="meta">(humans decide; the model only sorts, translates and groups)</span></h2>
+  <div id="clusters"></div>
+
+  <h2>Rumour checks</h2>
+  <table><thead><tr><th>When</th><th>Area</th><th>Lang</th><th>Claim</th><th>Verdict</th><th>Reply sent</th></tr></thead><tbody id="rumors"></tbody></table>
+
+  <h2>Published by moderators</h2>
+  <div class="actions" style="margin:0 0 10px"><button class="primary" onclick="openPublish()">Publish a sourced notice</button></div>
+  <table><thead><tr><th>Published</th><th>Country / area</th><th>Category</th><th>Title</th><th>Source</th></tr></thead><tbody id="items"></tbody></table>
+
+  <h2>All reports</h2>
+  <table><thead><tr><th>Ref</th><th>When</th><th>Area</th><th>Category</th><th>Urgency</th><th>Original</th><th>English</th><th>Status</th></tr></thead><tbody id="reports"></tbody></table>
+</main>
+
+<dialog id="dlg">
+  <form method="dialog" id="form">
+    <h3 id="dlgTitle" style="margin:0">Verify and publish</h3>
+    <p class="meta" id="dlgSub"></p>
+    <input type="hidden" name="cluster_id">
+    <div class="row2">
+      <label>Country <input name="country" required></label>
+      <label>Area code (or ALL) <input name="area" required></label>
+    </div>
+    <div class="row2">
+      <label>Category <select name="category"><option value="safety">Safety & alerts</option><option value="notice">Notices & deadlines</option><option value="community">Community & disputes</option><option value="services">Services & money</option></select></label>
+      <label>Priority (1 = top) <input name="priority" type="number" min="1" max="9" value="1"></label>
+    </div>
+    <label>Title (max 40 chars) <input name="title" maxlength="40" required></label>
+    <label>Body (what is confirmed, max 400 chars) <textarea name="body" rows="4" maxlength="420" required></textarea></label>
+    <label>What to do (max 140 chars) <input name="action" maxlength="140" required></label>
+    <div class="row2">
+      <label>Source name <input name="source_name" placeholder="e.g. Kano State Police Command statement" required></label>
+      <label>Source date <input name="source_date" type="date"></label>
+    </div>
+    <label>Source URL (optional) <input name="source_url"></label>
+    <div class="actions"><button type="button" onclick="document.getElementById('dlg').close()">Cancel</button><button class="primary" value="ok" id="dlgOk">Publish to front page</button></div>
+  </form>
+</dialog>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const token = () => localStorage.getItem("gaskiya_token") || "";
+async function api(path, opts = {}) {
+  const r = await fetch(path, { ...opts, headers: { "content-type": "application/json", "x-dashboard-token": token(), ...(opts.headers || {}) } });
+  if (r.status === 401) { const t = prompt("Dashboard token"); if (t) { localStorage.setItem("gaskiya_token", t); return api(path, opts); } throw new Error("unauthorized"); }
+  return r.json();
+}
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const when = (s) => s ? new Date(s.replace(" ", "T") + "Z").toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) : "";
+
+async function load() {
+  const [stats, clusters, rumors, items, reports] = await Promise.all([api("/api/stats"), api("/api/clusters"), api("/api/rumors"), api("/api/items"), api("/api/reports")]);
+  $("aiState").textContent = stats.ai ? `Model: ${stats.model} · UI languages loaded: ${stats.packs.join(", ")} · custom: ${stats.custom_languages.map(l => l.display_name).join(", ") || "none yet"}` : "AI off (no API key) · deterministic fallbacks in use";
+  $("banner").style.display = stats.sample_content ? "" : "none";
+  $("tiles").innerHTML = [["Users", stats.users], ["Reports", stats.reports], ["Open clusters", stats.clusters], ["Rumour checks", stats.rumors], ["Published", stats.published], ["Live sessions", stats.sessions]].map(([k, v]) => `<div class="tile"><b>${v}</b><span>${k}</span></div>`).join("");
+
+  const open = clusters.filter(c => c.status === "open"), closed = clusters.filter(c => c.status !== "open");
+  $("clusters").innerHTML = (open.length ? "" : `<p class="empty">No open clusters. Reports arriving from the USSD line will group here.</p>`) +
+    open.map(c => {
+      const urg = c.reports.some(r => r.urgency === "high") ? "high" : c.reports.some(r => r.urgency === "medium") ? "medium" : "low";
+      return `<div class="card ${urg}">
+        <h3>${esc(c.title)} <span class="pill open">${c.count} report${c.count === 1 ? "" : "s"}</span></h3>
+        <div class="meta">${esc(c.area_name)} · ${esc(c.category)} · last ${when(c.updated_at)} · ${c.count >= 5 ? "visible to users as unverified" : "below public threshold (5)"}</div>
+        ${c.reports.map(r => `<div class="rep"><b>${esc(r.ref)}</b> · ${esc(r.when_text)} · ${esc(r.urgency || "…")}<br>${esc(r.text_en || r.text)}${r.text_en && r.text_en !== r.text ? `<div class="orig">Original (${esc(r.lang)}): ${esc(r.text)}</div>` : ""}</div>`).join("")}
+        <div class="actions"><button class="primary" onclick='openVerify(${JSON.stringify(c).replace(/'/g, "&#39;")})'>Verify & publish</button><button class="warn" onclick="dismiss(${c.id})">Dismiss</button></div>
+      </div>`;
+    }).join("") +
+    (closed.length ? `<p class="meta">${closed.map(c => `<span class="pill ${c.status}">${esc(c.title)} · ${c.status}</span>`).join(" ")}</p>` : "");
+
+  $("rumors").innerHTML = rumors.map(r => `<tr><td>${when(r.created_at)}</td><td>${esc(r.area)}</td><td>${esc(r.lang)}</td><td>${esc(r.claim)}</td><td><span class="pill ${r.verdict}">${r.verdict}</span>${r.item_id ? `<div class="meta">${esc(r.item_id)}</div>` : ""}</td><td>${esc(r.reply)}</td></tr>`).join("") || `<tr><td colspan="6" class="empty">None yet.</td></tr>`;
+  $("items").innerHTML = items.map(i => `<tr><td>${when(i.published_at)}</td><td>${esc(i.country)} / ${esc(i.area)}</td><td>${esc(i.category)}</td><td><b>${esc(i.title)}</b><div class="meta">${esc(i.body)}</div></td><td>${esc(i.source_name)}<div class="meta">${esc(i.source_date)}</div></td></tr>`).join("") || `<tr><td colspan="5" class="empty">Nothing published from the desk yet. Seed notices are served from content/seeds.json.</td></tr>`;
+  $("reports").innerHTML = reports.map(r => `<tr><td>${esc(r.ref)}</td><td>${when(r.created_at)}</td><td>${esc(r.area_name)}</td><td>${esc(r.ai_category || r.category)}</td><td>${esc(r.urgency || "…")}</td><td>${esc(r.text)}<div class="meta">${esc(r.lang)} · ${esc(r.when_text)}</div></td><td>${esc(r.text_en || "")}</td><td>${esc(r.status)}</td></tr>`).join("") || `<tr><td colspan="8" class="empty">No reports yet.</td></tr>`;
+}
+
+const f = $("form");
+function openVerify(c) {
+  $("dlgTitle").textContent = "Verify cluster and publish";
+  $("dlgSub").textContent = `${c.count} report(s) in ${c.area_name}. Write only what a trusted source confirms. Users will see the source line.`;
+  f.cluster_id.value = c.id; f.country.value = c.country; f.area.value = c.area; f.title.value = c.title.slice(0, 40);
+  f.body.value = ""; f.action.value = ""; f.source_name.value = ""; f.source_date.value = new Date().toISOString().slice(0, 10); f.source_url.value = "";
+  f.category.value = { safety: "safety", rumor: "community", service: "services", aid: "services", other: "notice" }[c.category] || "notice";
+  $("dlg").showModal();
+}
+function openPublish() {
+  $("dlgTitle").textContent = "Publish a sourced notice"; $("dlgSub").textContent = "Adds an item for a country/area. Translations into the fixed languages are generated in the background when AI is on.";
+  f.cluster_id.value = ""; f.country.value = "NG"; f.area.value = "ALL"; f.title.value = ""; f.body.value = ""; f.action.value = ""; f.source_name.value = ""; f.source_date.value = new Date().toISOString().slice(0, 10); f.source_url.value = "";
+  $("dlg").showModal();
+}
+f.addEventListener("submit", async (e) => {
+  if (e.submitter?.value !== "ok") return;
+  const d = Object.fromEntries(new FormData(f).entries());
+  const body = { ...d, priority: Number(d.priority) };
+  if (d.cluster_id) await api(`/api/clusters/${d.cluster_id}/verify`, { method: "POST", body: JSON.stringify(body) });
+  else await api("/api/items", { method: "POST", body: JSON.stringify(body) });
+  load();
+});
+async function dismiss(id) { if (confirm("Dismiss this cluster? Reporters will see it as Closed.")) { await api(`/api/clusters/${id}/dismiss`, { method: "POST" }); load(); } }
+load(); setInterval(load, 15000);
+</script>
+</body>
+</html>

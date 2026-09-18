@@ -1,0 +1,34 @@
+{
+  "_note": "Sample registry. Every entry carries a lastVerified date that is shown to users. Re-verify before production. Numbers marked real are publicly listed national lines.",
+  "NG": [
+    { "name": "Emergency (police, fire, ambulance)", "number": "112", "lastVerified": "2026-09-15", "tags": ["emergency"] },
+    { "name": "NAPTIP trafficking & abuse line", "number": "0703 000 0203", "lastVerified": "2026-09-15", "tags": ["gbv", "safety"] },
+    { "name": "Lagos Domestic & Sexual Violence Agency", "number": "0800 033 3333", "lastVerified": "2026-09-15", "tags": ["gbv"], "area": "NG-LA" },
+    { "name": "NEMA emergency management", "number": "0800 2255 6362", "lastVerified": "2026-09-10", "tags": ["disaster", "aid"] },
+    { "name": "Legal Aid Council of Nigeria", "number": "0800 5342 5243", "lastVerified": "2026-09-10", "tags": ["legal"] }
+  ],
+  "KE": [
+    { "name": "Emergency", "number": "999 / 112", "lastVerified": "2026-09-15", "tags": ["emergency"] },
+    { "name": "GBV national hotline (HAK)", "number": "1195", "lastVerified": "2026-09-15", "tags": ["gbv", "safety"] },
+    { "name": "Childline Kenya", "number": "116", "lastVerified": "2026-09-15", "tags": ["child"] },
+    { "name": "Kenya Red Cross", "number": "1199", "lastVerified": "2026-09-10", "tags": ["disaster", "aid"] }
+  ],
+  "CD": [
+    { "name": "Police / urgence", "number": "112", "lastVerified": "2026-09-12", "tags": ["emergency"] },
+    { "name": "Ligne verte protection (Goma)", "number": "Consult local OCHA notice", "lastVerified": "2026-09-12", "tags": ["gbv", "safety"], "area": "CD-NK" },
+    { "name": "Croix-Rouge RDC", "number": "Local branch", "lastVerified": "2026-09-01", "tags": ["aid"] }
+  ],
+  "SD": [
+    { "name": "Police emergency", "number": "999", "lastVerified": "2026-09-01", "tags": ["emergency"] },
+    { "name": "Sudanese Red Crescent", "number": "Local branch", "lastVerified": "2026-09-01", "tags": ["aid"] }
+  ],
+  "MZ": [
+    { "name": "Policia / emergencia", "number": "112 / 119", "lastVerified": "2026-09-12", "tags": ["emergency"] },
+    { "name": "Linha Fala Crianca", "number": "116", "lastVerified": "2026-09-12", "tags": ["child", "gbv"] },
+    { "name": "Linha Verde (aid complaints, WFP)", "number": "1458", "lastVerified": "2026-09-12", "tags": ["aid"] }
+  ],
+  "ML": [
+    { "name": "Police secours", "number": "17", "lastVerified": "2026-09-01", "tags": ["emergency"] },
+    { "name": "Ligne verte protection", "number": "80 00 11 21", "lastVerified": "2026-09-01", "tags": ["gbv", "safety"] }
+  ]
+}

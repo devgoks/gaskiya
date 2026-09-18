@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gaskiya USSD simulator</title>
+<style>
+  :root { --bg:#0f1115; --panel:#181b22; --ink:#e8e6df; --muted:#8b90a0; --accent:#e0a300; --ok:#5cc489; --warn:#e06c5c; --screen:#c9d8b0; --screen-ink:#1a2410; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.45 -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding:18px 24px; border-bottom:1px solid #262a33; display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; }
+  header h1 { margin:0; font-size:20px; letter-spacing:.3px; } header h1 span { color:var(--accent); }
+  header p { margin:0; color:var(--muted); }
+  main { display:grid; grid-template-columns: 360px 1fr; gap:24px; padding:24px; max-width:1200px; }
+  @media (max-width: 820px) { main { grid-template-columns:1fr; } }
+  .phone { background:#22252d; border-radius:36px; padding:22px 16px 26px; box-shadow:0 20px 60px rgba(0,0,0,.5), inset 0 0 0 2px #2f333d; }
+  .screen { background:var(--screen); color:var(--screen-ink); border-radius:10px; min-height:250px; padding:14px 14px 10px; font:14.5px/1.4 "SF Mono", Menlo, Consolas, monospace; white-space:pre-wrap; word-break:break-word; position:relative; }
+  .screen.ended { opacity:.75; }
+  .count { position:absolute; right:10px; bottom:6px; font-size:11px; color:#4a5a30; }
+  .count.over { color:var(--warn); font-weight:700; }
+  .row { display:flex; gap:8px; margin-top:12px; }
+  input[type=text], select { flex:1; padding:10px 12px; border-radius:8px; border:1px solid #3a3f4b; background:#12141a; color:var(--ink); font-size:15px; }
+  button { padding:10px 14px; border-radius:8px; border:0; background:#3a3f4b; color:var(--ink); font-weight:600; cursor:pointer; }
+  button.primary { background:var(--accent); color:#1a1300; } button.danger { background:#5a2c2c; }
+  button:disabled { opacity:.4; cursor:default; }
+  .meta { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:14px; font-size:13px; color:var(--muted); }
+  .meta label { display:flex; flex-direction:column; gap:4px; }
+  .meta input, .meta select { font-size:13px; padding:7px 9px; }
+  .panel { background:var(--panel); border:1px solid #262a33; border-radius:14px; padding:16px 18px; }
+  .panel h2 { margin:0 0 8px; font-size:15px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.6px; }
+  .log { font:12.5px/1.45 "SF Mono", Menlo, Consolas, monospace; max-height:560px; overflow:auto; }
+  .log .ex { border-left:3px solid #2f333d; padding:6px 10px; margin:8px 0; }
+  .log .ex.req { border-color:#5b6b8c; } .log .ex.res { border-color:var(--accent); }
+  .log .tag { color:var(--muted); font-size:11px; }
+  .hint { color:var(--muted); font-size:13px; margin-top:10px; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1><span>Gaskiya</span> USSD simulator</h1>
+  <p>Drives the live <code>/ussdSessionEvent/*</code> endpoints with the exact Qrios request shape. <a href="/dashboard">Moderator dashboard</a></p>
+</header>
+<main>
+  <section>
+    <div class="phone">
+      <div id="screen" class="screen">Dial <b id="code">*384*1#</b> to start.</div>
+      <div class="row">
+        <input id="inp" type="text" placeholder="Type a number or text, then Send" autocomplete="off" disabled>
+        <button id="send" class="primary" disabled>Send</button>
+      </div>
+      <div class="row">
+        <button id="dial" class="primary">Dial *384*1#</button>
+        <button id="cancel" class="danger" disabled>Cancel</button>
+      </div>
+      <div class="meta">
+        <label>Phone (msisdn)<input id="msisdn" value="2348012345678"></label>
+        <label>Operator<select id="op"><option>mtn</option><option>airtel</option><option>glo</option><option>etisalat</option></select></label>
+      </div>
+    </div>
+    <p class="hint">Tip: change the phone number to act as a new user, or keep it to see saved language and area remembered across sessions. Screens over 160 characters are flagged in red.</p>
+  </section>
+  <section class="panel">
+    <h2>Gateway exchange</h2>
+    <div id="log" class="log"></div>
+  </section>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+let sessionId = null, ended = true;
+const uuid = () => crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random();
+
+function render(view) {
+  let text = "";
+  if (view.type === "ChooserView") text = view.title + "\n" + view.items.map(i => `${i.accessKey} ${i.label}`).join("\n");
+  else text = view.message;
+  $("screen").textContent = text;
+  const c = document.createElement("div"); c.className = "count" + (text.length > 160 ? " over" : ""); c.textContent = text.length + " ch";
+  $("screen").appendChild(c);
+  ended = view.type === "InfoView";
+  $("screen").classList.toggle("ended", ended);
+  $("inp").disabled = ended; $("send").disabled = ended; $("cancel").disabled = ended;
+  if (!ended) { $("inp").value = ""; $("inp").focus(); }
+}
+function log(kind, path, body) {
+  const d = document.createElement("div"); d.className = "ex " + kind;
+  d.innerHTML = `<div class="tag">${kind === "req" ? "POST " + path : "200 response"} · ${new Date().toLocaleTimeString()}</div>` + `<div>${escapeHtml(JSON.stringify(body, null, 1))}</div>`;
+  $("log").prepend(d);
+}
+const escapeHtml = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+
+let busy = false;
+function setBusy(b) { busy = b; $("send").disabled = b || ended; $("inp").disabled = b || ended; $("dial").disabled = b; if (b) $("screen").textContent = $("screen").textContent.replace(/\n?\.\.\.$/, "") + "\n..."; }
+async function post(path, body) {
+  if (busy) return null;
+  setBusy(true);
+  log("req", path, body);
+  const t0 = performance.now();
+  try {
+    const r = await fetch(path, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+    if (r.status === 204) { log("res", path, { status: 204 }); return null; }
+    const j = await r.json();
+    j._ms = Math.round(performance.now() - t0);
+    log("res", path, j);
+    return j;
+  } finally { setBusy(false); }
+}
+
+$("dial").onclick = async () => {
+  sessionId = uuid();
+  const j = await post("/ussdSessionEvent/new", { clientId: "sim", appId: "gaskiya-sim", sessionId, msisdn: $("msisdn").value, operator: $("op").value, input: { type: "Dial", shortcodeString: "*384*1#" } });
+  if (j) render(j.action.view);
+};
+$("send").onclick = async () => {
+  const value = $("inp").value.trim(); if (!value || busy) return;
+  const j = await post("/ussdSessionEvent/continue", { clientId: "sim", appId: "gaskiya-sim", sessionId, result: { type: "InputResult", value }, contextData: "gaskiya" });
+  if (!j) return;
+  render(j.action.view);
+  if (ended) await post("/ussdSessionEvent/close", { clientId: "sim", appId: "gaskiya-sim", sessionId, reason: { type: "End" }, contextData: "gaskiya" });
+};
+$("inp").addEventListener("keydown", (e) => { if (e.key === "Enter") $("send").click(); });
+$("cancel").onclick = async () => {
+  await post("/ussdSessionEvent/close", { clientId: "sim", appId: "gaskiya-sim", sessionId, reason: { type: "Abandon" }, contextData: "gaskiya" });
+  $("screen").textContent = "Session cancelled. Dial again."; ended = true;
+  $("inp").disabled = $("send").disabled = $("cancel").disabled = true;
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+{
+  "_note": "Rumour-check eval set. expected is the verdict a careful human would give against seeds.json. The metric that matters most is false_confirmed: claims marked CONFIRMED that should not be.",
+  "claims": [
+    {
+      "country": "NG",
+      "claim": "Kano curfew now starts at 7pm and nobody can go out",
+      "expected": "CONTRADICTED",
+      "item": "ng-02"
+    },
+    {
+      "country": "NG",
+      "claim": "The curfew in Kano is now 10pm to 5am",
+      "expected": "CONFIRMED",
+      "item": "ng-02"
+    },
+    {
+      "country": "NG",
+      "claim": "They have removed the curfew in Kano completely",
+      "expected": "CONTRADICTED",
+      "item": "ng-02"
+    },
+    {
+      "country": "NG",
+      "claim": "NIN SIM linking deadline is 30 September",
+      "expected": "CONFIRMED",
+      "item": "ng-01"
+    },
+    {
+      "country": "NG",
+      "claim": "You must pay 2000 naira to link your NIN before the deadline",
+      "expected": "CONTRADICTED",
+      "item": "ng-01"
+    },
+    {
+      "country": "NG",
+      "claim": "NIN SIM deadline has been extended to December",
+      "expected": "CONTRADICTED",
+      "item": "ng-01"
+    },
+    {
+      "country": "NG",
+      "claim": "WFP food distribution in Maiduguri moved to Muna Garage school",
+      "expected": "CONFIRMED",
+      "item": "ng-03"
+    },
+    {
+      "country": "NG",
+      "claim": "WFP is charging 500 naira registration for food in Maiduguri",
+      "expected": "CONTRADICTED",
+      "item": "ng-03"
+    },
+    {
+      "country": "NG",
+      "claim": "Food distribution in Maiduguri has been cancelled this month",
+      "expected": "CONTRADICTED",
+      "item": "ng-03"
+    },
+    {
+      "country": "NG",
+      "claim": "Heavy rain and flooding expected in Lagos this weekend",
+      "expected": "CONFIRMED",
+      "item": "ng-04"
+    },
+    {
+      "country": "NG",
+      "claim": "Third Mainland Bridge has collapsed because of the flood",
+      "expected": "UNVERIFIED"
+    },
+    {
+      "country": "NG",
+      "claim": "Cholera cases are rising in Kano and Lagos",
+      "expected": "CONFIRMED",
+      "item": "ng-05"
+    },
+    {
+      "country": "NG",
+      "claim": "Cholera treatment at government clinics now costs 5000 naira",
+      "expected": "CONTRADICTED",
+      "item": "ng-05"
+    },
+    {
+      "country": "NG",
+      "claim": "Cholera is spread by the new phone network towers",
+      "expected": "UNVERIFIED"
+    },
+    {
+      "country": "NG",
+      "claim": "INEC voter registration starts again on 22 September",
+      "expected": "CONFIRMED",
+      "item": "ng-07"
+    },
+    {
+      "country": "NG",
+      "claim": "INEC has cancelled voter registration in the north",
+      "expected": "CONTRADICTED",
+      "item": "ng-07"
+    },
+    {
+      "country": "NG",
+      "claim": "Free measles vaccination in Abuja next week for children",
+      "expected": "CONFIRMED",
+      "item": "ng-08"
+    },
+    {
+      "country": "NG",
+      "claim": "The measles vaccine in Abuja is making children sick",
+      "expected": "UNVERIFIED"
+    },
+    {
+      "country": "NG",
+      "claim": "Peace commission is holding farmer herder dialogue sittings in Kaduna on market days",
+      "expected": "CONFIRMED",
+      "item": "ng-06"
+    },
+    {
+      "country": "NG",
+      "claim": "Herders are planning to attack Kachia this Friday",
+      "expected": "UNVERIFIED"
+    },
+    {
+      "country": "NG",
+      "claim": "There is a community peace meeting in Jos North on Saturday",
+      "expected": "CONFIRMED",
+      "item": "ng-09"
+    },
+    {
+      "country": "NG",
+      "claim": "Soldiers are moving into Jos tonight to clear Angwan Rukuba",
+      "expected": "UNVERIFIED"
+    },
+    {
+      "country": "NG",
+      "claim": "The government is giving 50000 naira to everyone who registers on a website",
+      "expected": "UNVERIFIED"
+    },
+    {
+      "country": "NG",
+      "claim": "Fuel price has doubled from tomorrow",
+      "expected": "UNVERIFIED"
+    },
+    {
+      "country": "KE",
+      "claim": "Replacing a lost ID card costs 300 shillings",
+      "expected": "CONFIRMED",
+      "item": "ke-01"
+    },
+    {
+      "country": "KE",
+      "claim": "New ID cards cost 2000 shillings for everyone",
+      "expected": "CONTRADICTED",
+      "item": "ke-01"
+    },
+    {
+      "country": "KE",
+      "claim": "NDMA is registering Turkana households for cash transfers this week",
+      "expected": "CONFIRMED",
+      "item": "ke-02"
+    },
+    {
+      "country": "KE",
+      "claim": "Turkana cash transfer registration has been stopped",
+      "expected": "CONTRADICTED",
+      "item": "ke-02"
+    },
+    {
+      "country": "KE",
+      "claim": "Nairobi county is holding budget public participation forums this week",
+      "expected": "CONFIRMED",
+      "item": "ke-03"
+    },
+    {
+      "country": "KE",
+      "claim": "Nairobi county has banned matatus from the CBD from Monday",
+      "expected": "UNVERIFIED"
+    },
+    {
+      "country": "CD",
+      "claim": "People at Bulengo site are being forced to move to Sake",
+      "expected": "CONTRADICTED",
+      "item": "cd-01"
+    },
+    {
+      "country": "CD",
+      "claim": "Relocation from Bulengo to Sake is voluntary and free",
+      "expected": "CONFIRMED",
+      "item": "cd-01"
+    },
+    {
+      "country": "CD",
+      "claim": "Food distribution at Bulengo has stopped",
+      "expected": "CONTRADICTED",
+      "item": "cd-01"
+    },
+    {
+      "country": "CD",
+      "claim": "M23 will enter Goma town tomorrow",
+      "expected": "UNVERIFIED"
+    },
+    {
+      "country": "SD",
+      "claim": "Free cholera vaccine campaign in Khartoum and Gezira this week",
+      "expected": "CONFIRMED",
+      "item": "sd-01"
+    },
+    {
+      "country": "SD",
+      "claim": "The cholera vaccine costs money at the health centre",
+      "expected": "CONTRADICTED",
+      "item": "sd-01"
+    },
+    {
+      "country": "MZ",
+      "claim": "Families returning to Mocimboa da Praia get shelter materials and food",
+      "expected": "CONFIRMED",
+      "item": "mz-01"
+    },
+    {
+      "country": "MZ",
+      "claim": "You must pay the district office to register for the return package",
+      "expected": "CONTRADICTED",
+      "item": "mz-01"
+    },
+    {
+      "country": "MZ",
+      "claim": "The road to Macomia is closed by insurgents",
+      "expected": "CONTRADICTED",
+      "item": "mz-01",
+      "note": "Relabelled after first live run: the IOM item of 14 Sep states roads to Macomia remain open, so a trusted source does contradict this claim."
+    },
+    {
+      "country": "ML",
+      "claim": "Schools in Gao are closed until further notice",
+      "expected": "UNVERIFIED"
+    }
+  ]
+}

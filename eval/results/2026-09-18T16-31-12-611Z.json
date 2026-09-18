@@ -1,0 +1,334 @@
+{
+  "summary": {
+    "mode": "deepseek-flash",
+    "n": 40,
+    "accuracy": 0.975,
+    "false_confirmed": 0,
+    "false_confirmed_rate": 0,
+    "wrong_item": 0,
+    "seconds": 49,
+    "at": "2026-09-18T16:31:12.611Z"
+  },
+  "rows": [
+    {
+      "claim": "Kano curfew now starts at 7pm and nobody can go out",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "ng-02",
+      "ok": true,
+      "reply": "Kano govt says curfew is now 10pm to 5am, not 7pm. Movement outside those hours is allowed."
+    },
+    {
+      "claim": "The curfew in Kano is now 10pm to 5am",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "ng-02",
+      "ok": true,
+      "reply": "Kano State Government says curfew in Kano municipal and Nassarawa LGAs is now 10pm to 5am, from 16 Sep. Movement outside these hours is allowed."
+    },
+    {
+      "claim": "They have removed the curfew in Kano completely",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "ng-02",
+      "ok": true,
+      "reply": "Not true. Kano State says the curfew was shortened, not removed. It now runs 10pm to 5am in Kano municipal and Nassarawa LGAs."
+    },
+    {
+      "claim": "NIN SIM linking deadline is 30 September",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "ng-01",
+      "ok": true,
+      "reply": "NCC notice: lines not linked to NIN will be barred from 30 Sep 2026. Linking is free. Use your network outlet, NIN code or NIMC app."
+    },
+    {
+      "claim": "You must pay 2000 naira to link your NIN before the deadline",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "ng-01",
+      "ok": true,
+      "reply": "NCC says NIN-SIM linking is free. Do not pay anyone. Link at your network outlet, by NIN code, or NIMC app before 30 Sep."
+    },
+    {
+      "claim": "NIN SIM deadline has been extended to December",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "ng-01",
+      "ok": true,
+      "reply": "NCC notice says the NIN-SIM linking deadline is 30 Sep 2026, not December. Link free before then or your line will be barred."
+    },
+    {
+      "claim": "WFP food distribution in Maiduguri moved to Muna Garage school",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "ng-03",
+      "ok": true,
+      "reply": "WFP/NEMA notice: Bakassi and Teachers Village food distribution moved to Muna Garage school field, 18-22 Sep, 8am-3pm. Bring ration card. No fee."
+    },
+    {
+      "claim": "WFP is charging 500 naira registration for food in Maiduguri",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "ng-03",
+      "ok": true,
+      "reply": "WFP/NEMA Borno notice says Maiduguri food distribution has no charge and no registration fee. Do not pay anyone."
+    },
+    {
+      "claim": "Food distribution in Maiduguri has been cancelled this month",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "ng-03",
+      "ok": true,
+      "reply": "Not cancelled. WFP/NEMA say Maiduguri distribution moved to Muna Garage school field, 18-22 Sep, 8am-3pm. Bring your ration card. It is free."
+    },
+    {
+      "claim": "Heavy rain and flooding expected in Lagos this weekend",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "ng-04",
+      "ok": true,
+      "reply": "NiMet/LASEMA alert: heavy rain in Lagos Fri 19 to Sun 21 Sep. Ajegunle, Ikorodu, Lekki, Ajah may flood. Clear drains, move valuables up, avoid driving in water."
+    },
+    {
+      "claim": "Third Mainland Bridge has collapsed because of the flood",
+      "expected": "UNVERIFIED",
+      "got": "UNVERIFIED",
+      "item": null,
+      "ok": true,
+      "reply": "No trusted source says the bridge collapsed. NiMet/LASEMA only warn of possible flooding in low areas 19-21 Sep. Treat bridge claims as rumour."
+    },
+    {
+      "claim": "Cholera cases are rising in Kano and Lagos",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "ng-05",
+      "ok": true,
+      "reply": "NCDC advisory confirms rising cholera in Kano, Lagos and 3 other states. Boil water, wash hands, cook food well. Treatment at govt health centres is free."
+    },
+    {
+      "claim": "Cholera treatment at government clinics now costs 5000 naira",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "ng-05",
+      "ok": true,
+      "reply": "NCDC says cholera treatment at government health centres is free. Do not pay 5000 naira."
+    },
+    {
+      "claim": "Cholera is spread by the new phone network towers",
+      "expected": "UNVERIFIED",
+      "got": "UNVERIFIED",
+      "item": null,
+      "ok": true,
+      "reply": "No trusted source says towers spread cholera. NCDC advises boiled water, hand washing and safe food. Treat this as a rumour."
+    },
+    {
+      "claim": "INEC voter registration starts again on 22 September",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "ng-07",
+      "ok": true,
+      "reply": "INEC says voter registration resumes Mon 22 Sep at all LGA offices. Free, about 20 minutes."
+    },
+    {
+      "claim": "INEC has cancelled voter registration in the north",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "ng-07",
+      "ok": true,
+      "reply": "INEC says voter registration resumes 22 Sep at all LGA offices, not cancelled. Registration is free."
+    },
+    {
+      "claim": "Free measles vaccination in Abuja next week for children",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "ng-08",
+      "ok": true,
+      "reply": "FCT health board: free measles and rubella vaccines for children 9 months to 5 years, 22 to 28 Sep, at all FCT primary health centres. No card needed."
+    },
+    {
+      "claim": "The measles vaccine in Abuja is making children sick",
+      "expected": "UNVERIFIED",
+      "got": "UNVERIFIED",
+      "item": null,
+      "ok": true,
+      "reply": "No trusted source covers this claim. Treat it as a rumour. FCT says free measles vaccines for children 9 months to 5 years run 22 to 28 Sep."
+    },
+    {
+      "claim": "Peace commission is holding farmer herder dialogue sittings in Kaduna on market days",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "ng-06",
+      "ok": true,
+      "reply": "Kaduna State Peace Commission confirms farmer-herder dialogue sittings every market day in September at Kachia and Zangon Kataf LGA secretariats. No lawyer needed."
+    },
+    {
+      "claim": "Herders are planning to attack Kachia this Friday",
+      "expected": "UNVERIFIED",
+      "got": "UNVERIFIED",
+      "item": null,
+      "ok": true,
+      "reply": "No trusted source covers this. Treat it as a rumour. Report threats to police."
+    },
+    {
+      "claim": "There is a community peace meeting in Jos North on Saturday",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "ng-09",
+      "ok": true,
+      "reply": "Plateau Peace Building Agency confirms a Jos North community meeting Sat 20 Sep, 10am, at the LGA hall."
+    },
+    {
+      "claim": "Soldiers are moving into Jos tonight to clear Angwan Rukuba",
+      "expected": "UNVERIFIED",
+      "got": "UNVERIFIED",
+      "item": null,
+      "ok": true,
+      "reply": "No trusted source confirms troop movement in Jos. A peace meeting on Angwan Rukuba tensions is set for Sat 20 Sep. Treat this as a rumour."
+    },
+    {
+      "claim": "The government is giving 50000 naira to everyone who registers on a website",
+      "expected": "UNVERIFIED",
+      "got": "UNVERIFIED",
+      "item": null,
+      "ok": true,
+      "reply": "No trusted source covers this. No government registration for 50000 naira is confirmed. Treat it as a rumour and do not pay or share details."
+    },
+    {
+      "claim": "Fuel price has doubled from tomorrow",
+      "expected": "UNVERIFIED",
+      "got": "UNVERIFIED",
+      "item": null,
+      "ok": true,
+      "reply": "No trusted source covers fuel price changes. Treat it as a rumour."
+    },
+    {
+      "claim": "Replacing a lost ID card costs 300 shillings",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "ke-01",
+      "ok": true,
+      "reply": "Ministry of Interior notice says replacing a lost ID card costs KSh 300. Apply at any Huduma Centre or registration office."
+    },
+    {
+      "claim": "New ID cards cost 2000 shillings for everyone",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "ke-01",
+      "ok": true,
+      "reply": "Ministry of Interior notice says a lost card replacement costs KSh 300, not 2000. Check Huduma Centre for the correct fee."
+    },
+    {
+      "claim": "NDMA is registering Turkana households for cash transfers this week",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "ke-02",
+      "ok": true,
+      "reply": "NDMA Turkana notice confirms registration for drought cash transfers at ward offices 17-24 Sept. Registered households get KSh 5,400 monthly by M-Pesa."
+    },
+    {
+      "claim": "Turkana cash transfer registration has been stopped",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "ke-02",
+      "ok": true,
+      "reply": "NDMA Turkana notice says registration is open at ward offices 17-24 Sept for Turkana Central, Loima and Turkana North. Not stopped."
+    },
+    {
+      "claim": "Nairobi county is holding budget public participation forums this week",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "ke-03",
+      "ok": true,
+      "reply": "Confirmed: Nairobi County budget forums run 18-23 Sep in all 17 sub-counties. You can question water, roads and health spending."
+    },
+    {
+      "claim": "Nairobi county has banned matatus from the CBD from Monday",
+      "expected": "UNVERIFIED",
+      "got": "UNVERIFIED",
+      "item": null,
+      "ok": true,
+      "reply": "No trusted source covers this yet. Treat it as a rumour."
+    },
+    {
+      "claim": "People at Bulengo site are being forced to move to Sake",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "cd-01",
+      "ok": true,
+      "reply": "OCHA/UNHCR say relocation to Sake is voluntary from 20 Sep, with free transport and kit. No one is forced to move."
+    },
+    {
+      "claim": "Relocation from Bulengo to Sake is voluntary and free",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "cd-01",
+      "ok": true,
+      "reply": "OCHA/UNHCR say relocation from Bulengo to Sake is voluntary and free. Transport and a return kit are provided. Food aid at Bulengo continues to end of September."
+    },
+    {
+      "claim": "Food distribution at Bulengo has stopped",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "cd-01",
+      "ok": true,
+      "reply": "OCHA/UNHCR say food distribution at Bulengo continues until end of September. Relocation to Sake from 20 Sep is voluntary."
+    },
+    {
+      "claim": "M23 will enter Goma town tomorrow",
+      "expected": "UNVERIFIED",
+      "got": "UNVERIFIED",
+      "item": null,
+      "ok": true,
+      "reply": "No trusted source covers this. Treat it as a rumour."
+    },
+    {
+      "claim": "Free cholera vaccine campaign in Khartoum and Gezira this week",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "sd-01",
+      "ok": true,
+      "reply": "Ministry of Health and WHO confirm free oral cholera vaccine in Gezira, Khartoum and Red Sea states, 18-25 September. Free for everyone over one year."
+    },
+    {
+      "claim": "The cholera vaccine costs money at the health centre",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "sd-01",
+      "ok": true,
+      "reply": "The Ministry of Health and WHO say the cholera vaccine is free for everyone over one year old. Do not pay."
+    },
+    {
+      "claim": "Families returning to Mocimboa da Praia get shelter materials and food",
+      "expected": "CONFIRMED",
+      "got": "CONFIRMED",
+      "item": "mz-01",
+      "ok": true,
+      "reply": "IOM says returning families in Mocimboa da Praia can register for shelter materials and a 3 month food ration at the district office."
+    },
+    {
+      "claim": "You must pay the district office to register for the return package",
+      "expected": "CONTRADICTED",
+      "got": "UNVERIFIED",
+      "item": null,
+      "ok": false,
+      "reply": "No trusted source says a fee is required. IOM says registration is at the district office. Treat any payment demand as a rumour."
+    },
+    {
+      "claim": "The road to Macomia is closed by insurgents",
+      "expected": "CONTRADICTED",
+      "got": "CONTRADICTED",
+      "item": "mz-01",
+      "ok": true,
+      "reply": "Trusted source (IOM, 14 Sep) says roads to Macomia remain open. Check with the local administration before travel."
+    },
+    {
+      "claim": "Schools in Gao are closed until further notice",
+      "expected": "UNVERIFIED",
+      "got": "UNVERIFIED",
+      "item": null,
+      "ok": true,
+      "reply": "No trusted source covers this yet. Treat it as a rumour."
+    }
+  ]
+}

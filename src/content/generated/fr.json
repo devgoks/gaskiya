@@ -1,0 +1,77 @@
+{
+  "ng-01": {
+    "title": "Date limite NIN-SIM 30 sept",
+    "body": "Les lignes non liees a un NIN seront bloquees des le 30 septembre 2026. Le lien est gratuit. Faites-le en agence de votre reseau, en composant le code NIN du reseau, ou via l'appli NIMC. Les lignes deja liees n'ont rien a faire.",
+    "action": "Composez *996# (MTN), *121*1# (Airtel) ou allez en agence avec votre fiche NIN. Ne payez personne."
+  },
+  "ng-02": {
+    "title": "Couvre-feu raccourci a Kano",
+    "body": "Le gouvernement de l'Etat de Kano a raccourci le couvre-feu dans les LGA de Kano municipal et Nassarawa. Le couvre-feu va desormais de 22h a 5h, au lieu de 19h a 6h, a partir du mercredi 16 septembre. Les deplacements sont autorises hors ces heures. Les controles de securite continuent aux grands carrefours.",
+    "action": "Gardez une piece d'identite la nuit. Signalez les abus aux controles a la Commission des plaintes publiques, Kano: 0803 000 0000."
+  },
+  "ng-03": {
+    "title": "Point distribution Maiduguri deplace",
+    "body": "La distribution alimentaire mensuelle du PAM pour les camps de Bakassi et Teachers Village est deplacee au terrain de l'ecole secondaire de Muna Garage pour septembre. Distribution du 18 au 22 septembre, de 8h a 15h. Apportez votre carte de ration. C'est gratuit, aucun frais d'inscription.",
+    "action": "Allez au terrain de l'ecole Muna Garage avec votre carte de ration. Qui demande de l'argent n'est pas le PAM. Signalez au 0800 500 1000."
+  },
+  "ng-04": {
+    "title": "Alerte inondation Lagos 19-21 sept",
+    "body": "NiMet prevoit de fortes pluies sur Lagos du vendredi 19 au dimanche 21 septembre. Les zones basses d'Ajegunle, Ikorodu, Lekki et Ajah risquent d'etre inondees. LASEMA conseille de curer les caniveaux, de mettre les objets de valeur en hauteur et d'eviter de conduire dans l'eau stagnante.",
+    "action": "Appelez LASEMA au 767 ou 112 si vous etes bloque. Montez tot sur un terrain eleve si votre rue a ete inondee en juillet."
+  },
+  "ng-05": {
+    "title": "Alerte cholera dans 5 Etats",
+    "body": "NCDC signale une hausse des cas de cholera a Bauchi, Borno, Kano, Lagos et Zamfara. Signes: diarrhee aqueuse soudaine et vomissements. Buvez seulement de l'eau bouillie ou traitee, lavez-vous les mains au savon, et cuisinez bien les aliments. Traitement gratuit dans les centres de sante publics.",
+    "action": "Commencez les sels de rehydratation orale tout de suite et allez au centre de sante primaire le plus proche. Ligne verte NCDC: 6232."
+  },
+  "ng-07": {
+    "title": "Inscription electorale reprend 22 sep",
+    "body": "L'inscription continue des electeurs de l'INEC reprend lundi 22 septembre dans tous les bureaux LGA. Les nouveaux electeurs de 18 ans et plus, les personnes qui ont demenage et toute personne ayant perdu ou abime sa carte peuvent s'inscrire. L'inscription est gratuite et dure environ 20 minutes.",
+    "action": "Allez au bureau INEC de votre LGA avec une piece d'identite indiquant votre date de naissance. Aucun paiement requis."
+  },
+  "ng-08": {
+    "title": "Vaccin rougeole gratuit FCT 22-28 Sep",
+    "body": "Tous les centres de sante primaires des six conseils de zone du FCT donneront des vaccins gratuits contre la rougeole et la rubeole aux enfants de 9 mois a 5 ans du 22 au 28 septembre. Aucune carte ni rendez-vous n'est requis. Des equipes de vaccination visiteront aussi les marches et les ecoles.",
+    "action": "Amenez votre enfant dans tout centre de sante primaire entre 8h et 16h. Apportez la carte de vaccination de l'enfant si vous en avez une."
+  },
+  "ng-09": {
+    "title": "Jos: reunion de paix samedi",
+    "body": "L'Agence de consolidation de la paix du Plateau invite a une reunion communautaire conjointe des quartiers de Jos Nord le samedi 20 septembre, a 10h, a la salle de la LGA de Jos Nord. La reunion traitera des tensions recentes liees a la terre a Angwan Rukuba et fixera l'usage partage du marche de Farin Gada.",
+    "action": "Chefs de quartier et leaders de jeunes: venez. Toute preoccupation peut etre envoyee avant via l'option signalement de cette ligne."
+  },
+  "ke-01": {
+    "title": "Nouvelles cartes d'identite",
+    "body": "Le Ministere de l'Interieur delivre la nouvelle carte d'identite dans tous les centres Huduma et bureaux d'enregistrement. Les nouveaux demandeurs ages de 18 ans doivent presenter un certificat de naissance et la carte d'identite d'un parent. Le remplacement d'une carte perdue coute KSh 300. Le traitement prend environ 14 jours.",
+    "action": "Rendez-vous au centre Huduma le plus proche. Suivez votre carte en composant *232#. Ne payez pas d'agents."
+  },
+  "ke-02": {
+    "title": "Inscription aide secheresse Turkana",
+    "body": "L'Autorite Nationale de Gestion de la Secheresse inscrit les menages de Turkana Central, Loima et Turkana North pour le transfert monetaire de septembre a novembre. Inscription aux bureaux de quartier du 17 au 24 septembre. Les menages inscrits recoivent KSh 5,400 par mois par M-Pesa.",
+    "action": "Allez au bureau de quartier avec votre ID et l'ID d'un autre adulte du menage. Inscription gratuite."
+  },
+  "cd-01": {
+    "title": "Goma: relocalisation du site de Bulengo",
+    "body": "OCHA et UNHCR confirment que les menages du site de Bulengo se verront proposer une relocalisation volontaire vers Sake a partir du 20 septembre. Le transport et un kit de retour sont gratuits. Personne n'est oblige de partir, et la distribution de nourriture a Bulengo continue jusqu'a fin septembre.",
+    "action": "Parlez au comite du site ou au bureau UNHCR a l'entree du site. Ne payez personne pour une place dans le transport."
+  },
+  "sd-01": {
+    "title": "Campagne de vaccination cholera",
+    "body": "Le ministere federal de la Sante avec l'OMS mene une campagne de vaccination orale contre le cholera dans les Etats de Gezira, Khartoum et Mer Rouge du 18 au 25 septembre. Le vaccin est gratuit pour toute personne de plus d'un an. Les equipes travaillent dans les centres de sante, les mosquees et les marches.",
+    "action": "Rendez-vous au centre de sante le plus proche ou ecoutez l'annonce de l'equipe mobile. Une seule dose suffit pour cette campagne."
+  },
+  "ng-06": {
+    "title": "Dialogues agriculteurs-eleveurs a Kaduna",
+    "body": "La Commission de la paix de l'Etat de Kaduna tiendra des seances de dialogue ouvert sur les differends entre agriculteurs et eleveurs chaque jour de marche en septembre aux secretariats des LGA de Kachia et Zangon Kataf. Les cas de degats aux cultures, de routes de pature et de points d'eau peuvent etre presentes sans avocat.",
+    "action": "Apportez les noms des deux parties et la localisation de la terre. Les seances commencent a 10h. Appelez la Commission au 0906 000 0000 pour les dates."
+  },
+  "ke-03": {
+    "title": "Audiences budget a Nairobi",
+    "body": "Le comte de Nairobi tient des forums de participation publique sur le budget supplementaire 2026/27 dans les 17 sous-comtes du 18 au 23 septembre. Les residents peuvent questionner les depenses eau, routes et sante et proposer des changements. Les soumissions ecrites sont aussi acceptees.",
+    "action": "Participez au forum de votre sous-comte au bureau du sous-comte, 9h. Ou envoyez votre avis au greffier de l'assemblee du comte avant le 23 septembre."
+  },
+  "mz-01": {
+    "title": "Cabo Delgado: retours et aide",
+    "body": "L'OIM signale que les familles qui retournent dans les districts de Mocimboa da Praia et Macomia peuvent s'inscrire pour un kit de retour comprenant des materiaux d'abri et une ration alimentaire de trois mois. L'inscription se fait au bureau de l'administration du district. Les routes vers Macomia restent ouvertes mais renseignez-vous aupres de l'administration locale avant de voyager.",
+    "action": "Inscrivez-vous au bureau de l'administration du district avec votre carte de deplacement. L'aide est gratuite. Appelez Linha Verde 1458 pour signaler des problemes."
+  }
+}
