@@ -54,11 +54,12 @@
         <button id="cancel" class="danger" disabled>Cancel</button>
       </div>
       <div class="meta">
-        <label>Phone (msisdn)<input id="msisdn" value="2348012345678"></label>
+        <label>Phone (msisdn) <input id="msisdn" value="" autocomplete="off"></label>
         <label>Operator<select id="op"><option>mtn</option><option>airtel</option><option>glo</option><option>etisalat</option></select></label>
       </div>
     </div>
-    <p class="hint">Tip: change the phone number to act as a new user, or keep it to see saved language and area remembered across sessions. Screens over 160 characters are flagged in red.</p>
+    <div class="row" style="margin-top:8px;"><button id="newnum" style="font-size:13px; padding:7px 10px; white-space:nowrap; align-self:flex-start;">New number</button><span class="hint" style="margin:0; align-self:center;">Your test number is generated once and kept in this browser, so the app remembers your language and area across refreshes. Each tester gets a different number.</span></div>
+    <p class="hint">Screens over 160 characters are flagged in red.</p>
   </section>
   <section class="panel">
     <h2>Gateway exchange</h2>
@@ -68,6 +69,25 @@
 <script>
 const $ = (id) => document.getElementById(id);
 let sessionId = null, ended = true;
+
+// Each tester gets their own random Nigerian-format number, kept in this browser so a
+// refresh keeps the same "phone" and the saved language and area survive.
+const NUM_KEY = "gaskiya_sim_msisdn";
+function randomMsisdn() {
+  const prefixes = ["803","806","810","813","816","703","706","903","906","805","807","811","815","705","905","809","817","818","908","909"];
+  const p = prefixes[Math.floor(Math.random() * prefixes.length)];
+  let rest = ""; for (let i = 0; i < 7; i++) rest += Math.floor(Math.random() * 10);
+  return "234" + p + rest;
+}
+function loadMsisdn() {
+  let n = null;
+  try { n = localStorage.getItem(NUM_KEY); } catch {}
+  if (!n) { n = randomMsisdn(); try { localStorage.setItem(NUM_KEY, n); } catch {} }
+  $("msisdn").value = n;
+}
+loadMsisdn();
+$("msisdn").addEventListener("change", () => { const v = $("msisdn").value.trim(); if (v) { try { localStorage.setItem(NUM_KEY, v); } catch {} } });
+$("newnum").onclick = () => { const n = randomMsisdn(); $("msisdn").value = n; try { localStorage.setItem(NUM_KEY, n); } catch {} $("screen").textContent = "New test number " + n + ". Dial to start as a new user."; };
 const uuid = () => crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random();
 
 function render(view) {
