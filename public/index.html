@@ -44,13 +44,13 @@
 <main>
   <section>
     <div class="phone">
-      <div id="screen" class="screen">Dial <b id="code">*384*1#</b> to start.</div>
+      <div id="screen" class="screen">Dial <b id="code">*425*078#</b> to start.</div>
       <div class="row">
         <input id="inp" type="text" placeholder="Type a number or text, then Send" autocomplete="off" disabled>
         <button id="send" class="primary" disabled>Send</button>
       </div>
       <div class="row">
-        <button id="dial" class="primary">Dial *384*1#</button>
+        <button id="dial" class="primary">Dial *425*078#</button>
         <button id="cancel" class="danger" disabled>Cancel</button>
       </div>
       <div class="meta">
@@ -108,7 +108,7 @@ async function post(path, body) {
 
 $("dial").onclick = async () => {
   sessionId = uuid();
-  const j = await post("/ussdSessionEvent/new", { clientId: "sim", appId: "gaskiya-sim", sessionId, msisdn: $("msisdn").value, operator: $("op").value, input: { type: "Dial", shortcodeString: "*384*1#" } });
+  const j = await post("/ussdSessionEvent/new", { clientId: "sim", appId: "gaskiya-sim", sessionId, msisdn: $("msisdn").value, operator: $("op").value, input: { type: "Dial", shortcodeString: "*425*078#" } });
   if (j) render(j.action.view);
 };
 $("send").onclick = async () => {

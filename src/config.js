@@ -31,5 +31,5 @@ export const config = {
   clusterPublicThreshold: Number(process.env.CLUSTER_PUBLIC_THRESHOLD || 5),
   // Reports are purged after this many days.
   reportRetentionDays: Number(process.env.REPORT_RETENTION_DAYS || 90),
-  shortcode: process.env.USSD_SHORTCODE || "*384*1#",
+  shortcode: process.env.USSD_SHORTCODE || "*425*078#",
 };

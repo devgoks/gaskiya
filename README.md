@@ -4,10 +4,10 @@
 
 *Gaskiya* is Hausa for "truth", after the historic newspaper *Gaskiya Ta Fi Kwabo*: "truth is worth more than a penny." It is an entry in the OSF x Andela hackathon *Information you can trust*, cross-track between **Stability & Social Cohesion** and **Safety, Reporting & Protection**.
 
-Dial a shortcode on any phone, including a feature phone with no data, and read today's verified notices for your area: curfew changes, aid distribution points, vaccination drives, registration deadlines, peace-committee sittings. Every item names its source and date and ends with what to do next. Two options make it more than a newspaper: **Check something you heard** tests a rumour against trusted notices, and **Report what you are seeing** feeds a moderator desk that verifies reports and publishes them back to the front page.
+Dial *425*078# (Qrios, Nigeria) on any phone, including a feature phone with no data, and read today's verified notices for your area: curfew changes, aid distribution points, vaccination drives, registration deadlines, peace-committee sittings. Every item names its source and date and ends with what to do next. Two options make it more than a newspaper: **Check something you heard** tests a rumour against trusted notices, and **Report what you are seeing** feeds a moderator desk that verifies reports and publishes them back to the front page.
 
 ```
-*384*1#
+*425*078#
 Gaskiya - Choose language
 1 English  2 Francais  3 Arabic  4 Portugues
 5 Kiswahili  6 Hausa  7 Yoruba  8 Igbo  9 Other
