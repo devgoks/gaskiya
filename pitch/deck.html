@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Gaskiya pitch deck</title>
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  :root { --ink:#15171c; --paper:#f6f3ea; --amber:#e0a300; --amber-d:#b57f00; --muted:#6a6f7d; --line:#dcd6c6; --ok:#2f8f5b; --warn:#c0392b; --screen:#c9d8b0; --screen-ink:#1a2410; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#fff; }
+  body { font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif; color:var(--ink); }
+  .slide { width:1280px; height:720px; position:relative; overflow:hidden; page-break-after:always; break-after:page; padding:64px 72px; background:var(--paper); }
+  .slide:last-child { page-break-after:auto; }
+  .slide.dark { background:var(--ink); color:#f3efe2; }
+  .slide.dark .muted { color:#a9adb8; }
+  .kicker { font-size:16px; letter-spacing:.18em; text-transform:uppercase; color:var(--amber-d); font-weight:700; margin:0 0 10px; }
+  .dark .kicker { color:var(--amber); }
+  h1 { font-size:88px; line-height:.95; margin:0 0 18px; letter-spacing:-.02em; font-weight:800; }
+  h2 { font-size:44px; line-height:1.05; margin:0 0 26px; letter-spacing:-.015em; font-weight:800; }
+  h3 { font-size:22px; margin:0 0 8px; font-weight:700; }
+  p, li { font-size:21px; line-height:1.4; margin:0; }
+  .muted { color:var(--muted); }
+  .lead { font-size:28px; line-height:1.3; max-width:900px; }
+  .foot { position:absolute; left:72px; right:72px; bottom:28px; display:flex; justify-content:space-between; font-size:14px; color:var(--muted); }
+  .dark .foot { color:#7e838f; }
+  .cols { display:grid; gap:40px; align-items:start; }
+  .c2 { grid-template-columns:1fr 1fr; } .c3 { grid-template-columns:1fr 1fr 1fr; } .c21 { grid-template-columns:1.2fr 1fr; } .c12 { grid-template-columns:1fr 1.3fr; }
+  ul { padding-left:22px; margin:0; } li { margin-bottom:12px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px 24px; }
+  .dark .card { background:#1f2228; border-color:#2f333d; }
+  .num { font-size:64px; font-weight:800; letter-spacing:-.03em; color:var(--amber-d); line-height:1; }
+  .dark .num { color:var(--amber); }
+  .label { font-size:15px; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); font-weight:700; margin-top:6px; }
+  table { border-collapse:collapse; width:100%; font-size:19px; }
+  th, td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-size:14px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); }
+  .dark th, .dark td { border-color:#2f333d; }
+  /* USSD screen mock */
+  .ussd { background:var(--screen); color:var(--screen-ink); border-radius:12px; padding:16px 18px; font:17px/1.35 Menlo, "SF Mono", Consolas, monospace; white-space:pre-wrap; box-shadow:0 10px 30px rgba(0,0,0,.18); border:6px solid #2a2d33; }
+  .ussd small { display:block; margin-top:8px; font-size:12px; color:#4a5a30; }
+  .phone { border-radius:22px; overflow:hidden; box-shadow:0 18px 50px rgba(0,0,0,.35); border:6px solid #111; background:#000; }
+  .phone img { display:block; width:100%; }
+  .tag { display:inline-block; background:var(--amber); color:#1a1300; font-weight:800; padding:6px 14px; border-radius:999px; font-size:16px; letter-spacing:.02em; }
+  .dark .tag { background:var(--amber); }
+  .pill { display:inline-block; padding:3px 10px; border-radius:999px; font-size:14px; font-weight:700; background:#eee; }
+  .pill.ok { background:#dff3e6; color:var(--ok); } .pill.no { background:#fde3df; color:var(--warn); } .pill.un { background:#f0ecdf; color:#7a5f00; }
+  /* loop diagram */
+  .loop { display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; align-items:stretch; }
+  .step { background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px 20px; position:relative; }
+  .step .n { position:absolute; top:-14px; left:18px; background:var(--ink); color:var(--amber); font-weight:800; font-size:14px; padding:4px 10px; border-radius:999px; letter-spacing:.1em; }
+  .step h3 { margin-top:8px; }
+  .step p { font-size:17px; line-height:1.35; }
+  .arrow { text-align:center; font-size:26px; color:var(--amber-d); margin-top:10px; }
+  .code { font-family: Menlo, "SF Mono", Consolas, monospace; background:#fff; border:1px solid var(--line); border-radius:8px; padding:2px 8px; font-size:.9em; }
+  .dark .code { background:#1f2228; border-color:#2f333d; }
+  .big-code { font-family: Menlo, "SF Mono", Consolas, monospace; font-size:56px; font-weight:700; letter-spacing:.02em; color:var(--amber); }
+  .stamp { position:absolute; right:72px; top:64px; text-align:right; font-size:15px; color:var(--muted); line-height:1.4; }
+  .dark .stamp { color:#a9adb8; }
+</style>
+</head>
+<body>
+
+<!-- 1. Title -->
+<section class="slide dark">
+  <p class="kicker">OSF x Andela Hackathon 2026 &nbsp;·&nbsp; Information you can trust</p>
+  <h1>Gaskiya</h1>
+  <p class="lead" style="color:#e8e6df; max-width:760px;">A daily civic paper on any phone. Sourced, dated, in your language, with a next step on every item.</p>
+  <div style="margin-top:44px; display:flex; align-items:center; gap:28px;">
+    <div class="big-code">*425*078#</div>
+    <div>
+      <span class="tag">LIVE NOW</span>
+      <p class="muted" style="font-size:18px; margin-top:8px; max-width:330px;">Dial from any MTN, Glo or 9mobile line in Nigeria. No app, no data.</p>
+    </div>
+  </div>
+  <div style="position:absolute; right:72px; top:150px; width:340px;" class="phone"><img src="assets/phone-dialog.jpeg" alt="Real phone showing the Gaskiya Lagos menu over USSD"></div>
+  <p class="muted" style="position:absolute; right:72px; top:470px; width:340px; font-size:14px; text-align:center;">Real handset, live network, 19 Sep 2026</p>
+  <div style="position:absolute; left:72px; bottom:64px;">
+    <p style="font-size:24px; font-weight:700; color:#f3efe2;">Olamigoke Olabampe</p>
+    <p class="muted" style="font-size:17px;">Cross-track: Stability &amp; Social Cohesion  ·  Safety, Reporting &amp; Protection</p>
+    <p class="muted" style="font-size:15px; margin-top:6px;"><i>Gaskiya</i> is Hausa for truth, after the newspaper <i>Gaskiya Ta Fi Kwabo</i>: truth is worth more than a penny.</p>
+  </div>
+</section>
+
+<!-- 2. Problem -->
+<section class="slide">
+  <p class="kicker">The problem</p>
+  <h2>When a curfew changes at 4pm, who tells the market?</h2>
+  <div class="cols c3">
+    <div class="card"><h3>Official notices are hard to reach</h3><p class="muted">Curfews, aid points, vaccination drives and deadlines are published as PDFs, press releases and website posts. Most people affected never see them.</p></div>
+    <div class="card"><h3>Rumours are easy to reach</h3><p class="muted">Word of mouth and forwarded messages move faster than any notice. In fragile areas a false "they are coming tonight" can move a whole neighbourhood.</p></div>
+    <div class="card"><h3>The phone in the pocket is basic</h3><p class="muted">Feature phones, no data bundle, patchy networks and many languages. Information tools built for smartphones and English skip the people who need them most.</p></div>
+  </div>
+  <p class="lead" style="margin-top:44px;">The gap is not a lack of information. It is that trusted information does not arrive where people are, in a form they can act on.</p>
+  <div class="foot"><span>Gaskiya · Problem</span><span>2</span></div>
+</section>
+
+<!-- 3. Users -->
+<section class="slide">
+  <p class="kicker">Who it is for</p>
+  <h2>Two users, one loop</h2>
+  <div class="cols c2">
+    <div class="card">
+      <h3>Readers</h3>
+      <p class="muted" style="margin-bottom:12px;">Anyone with a GSM phone in a place where notices matter and trust is thin.</p>
+      <ul class="muted">
+        <li>A trader in Kano who needs tonight's curfew hours, not last week's.</li>
+        <li>A mother in Maiduguri who heard the food point moved.</li>
+        <li>A family at Bulengo camp near Goma told they must relocate.</li>
+        <li>A herder in Kaduna who wants the dialogue sitting, not the fight.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Moderators</h3>
+      <p class="muted" style="margin-bottom:12px;">The people communities already trust to verify, given a desk that sorts for them.</p>
+      <ul class="muted">
+        <li>Peace committees and state peace commissions.</li>
+        <li>Protection clusters and humanitarian information officers.</li>
+        <li>Community radio and local government information units.</li>
+        <li>Partners like Build Up working with local peacebuilders.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:22px; font-size:17px;">Seeded for the partner geographies: Nigeria, Kenya, DR Congo, Sudan, Mozambique and Mali. 27 areas today. Adding one is a data-file edit.</p>
+  <div class="foot"><span>Gaskiya · Users</span><span>3</span></div>
+</section>
+
+<!-- 4. Solution -->
+<section class="slide">
+  <p class="kicker">The solution</p>
+  <h2>The newspaper, on USSD, in your language</h2>
+  <div class="cols c3" style="gap:26px;">
+    <div class="ussd">Gaskiya Kano
+1 Yau na yankina
+2 Sashe-sashe
+3 Duba abin da ka ji
+4 Bayar da abin da kake gani
+5 Lambobin taimako
+6 Rahotannina
+7 Harshe / yanki<small>Main menu · Hausa · 143 characters</small></div>
+    <div class="ussd">Yau 18 Sept
+1 An rage gajarta dokar hana fita Kano
+2 Ranar karshe NIN-SIM 30 Sep
+3 Sanarwa kan kwalara a jihohi 5
+0 Menu<small>Front page for Kano · top three items today</small></div>
+    <div class="ussd">An rage gajarta dokar hana fita Kano. Gwamnatin Jihar Kano ta rage dokar hana fita a kananan hukumomin Kano da Nassarawa. Yanzu dokar tana aiki daga karfe 10 na dare zuwa 5 na safe. (1/3)
+1 Kari
+0 Menu<small>Item page 1 of 3 · "Kari" = More</small></div>
+  </div>
+  <div class="cols c3" style="gap:26px; margin-top:26px;">
+    <div class="card"><h3>Sourced and dated</h3><p class="muted" style="font-size:18px;">The last page of every item names the source and date. Nothing is shown without one.</p></div>
+    <div class="card"><h3>A next step, always</h3><p class="muted" style="font-size:18px;">"Abin da za a yi" (what to do): where to go, who to call, what to bring, by when.</p></div>
+    <div class="card"><h3>Paginated, not squeezed</h3><p class="muted" style="font-size:18px;">Up to three screens per item with a More key. Every screen fits 160 characters, enforced by tests.</p></div>
+  </div>
+  <div class="foot"><span>Gaskiya · Solution &nbsp;·&nbsp; Notices in the demo are sample content modelled on real institutional notices; production uses a daily ingestion job.</span><span>4</span></div>
+</section>
+
+<!-- 5. The loop -->
+<section class="slide">
+  <p class="kicker">More than presenting information</p>
+  <h2>Readers report. Humans verify. The front page updates.</h2>
+  <div class="loop">
+    <div class="step"><span class="n">CHECK</span><h3>Check something you heard</h3><p class="muted">Type the rumour. It is tested against trusted notices only. Verdict, source and date come back in your language.</p></div>
+    <div class="step"><span class="n">REPORT</span><h3>Report what you are seeing</h3><p class="muted">Four screens, no name, no number kept. A reference code and an emergency contact come back at once.</p></div>
+    <div class="step"><span class="n">SORT</span><h3>The model triages</h3><p class="muted">Translates to English, strips private names, sets urgency, groups similar reports into clusters. Never publishes.</p></div>
+    <div class="step"><span class="n">VERIFY</span><h3>A moderator publishes</h3><p class="muted">Writes what a trusted source confirms, names the source. It goes to the front page. The reporter sees "Verified, published".</p></div>
+  </div>
+  <div class="cols c2" style="margin-top:24px; gap:26px;">
+    <div class="ussd">BA GASKIYA BA. Ba a cire dokar hana fita ba. Kano ta takaita ta zuwa 10pm zuwa 5am. Wannan labari karya ne. (1/2)
+1 Kari
+0 Menu<small>Live rumour check in Hausa: "NOT TRUE. The curfew was not lifted..." · then the source line</small></div>
+    <div class="ussd">Thank you. Reference KN-9861. No name or number is kept. If you are in danger now: Emergency (police, fire, ambulance) 112
+1 Help contacts
+0 Menu<small>Report received · 145 characters</small></div>
+  </div>
+  <div class="foot"><span>Gaskiya · The loop</span><span>5</span></div>
+</section>
+
+<!-- 6. Trust -->
+<section class="slide">
+  <p class="kicker">Trust and accuracy</p>
+  <h2>Designed so the system cannot invent a fact</h2>
+  <div class="cols c12">
+    <div>
+      <ul class="muted" style="font-size:19px;">
+        <li><b style="color:var(--ink)">Cite or say UNVERIFIED.</b> The rumour checker may only say CONFIRMED or NOT TRUE when it names a specific trusted notice. The server re-checks that the notice exists.</li>
+        <li><b style="color:var(--ink)">Community reports never confirm.</b> Clusters appear only as "N people reported something similar. Not yet verified.", and only above five reports.</li>
+        <li><b style="color:var(--ink)">Humans publish.</b> Nothing reaches the front page without a moderator writing the verified text and naming the source.</li>
+        <li><b style="color:var(--ink)">Honest fallback.</b> If the model is slow or down, a keyword fallback answers UNVERIFIED and points to any related notice. The line never goes silent.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Measured, not asserted</h3>
+      <p class="muted" style="font-size:16px; margin-bottom:12px;">40-claim eval run against the live model, 18 Sep 2026</p>
+      <table>
+        <tr><td>Accuracy</td><td><b>97.5%</b></td></tr>
+        <tr><td>False confirmations</td><td><b>0</b></td></tr>
+        <tr><td>Wrong source cited</td><td><b>0</b></td></tr>
+        <tr><td>Time per check</td><td><b>~1.2 s</b></td></tr>
+      </table>
+      <p class="muted" style="font-size:15px; margin-top:12px;">The one miss was the safe kind: an UNVERIFIED where NOT TRUE was justified. <span class="code">npm run eval</span> reproduces it.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Gaskiya · Trust</span><span>6</span></div>
+</section>
+
+<!-- 7. Constraints -->
+<section class="slide">
+  <p class="kicker">The brief's seven constraints</p>
+  <h2>Every constraint has a concrete answer</h2>
+  <table>
+    <tr><th style="width:26%">Constraint</th><th>How Gaskiya answers it</th></tr>
+    <tr><td>Trust and verification</td><td>Source and date on every item. Cite-or-UNVERIFIED guard. Human publication. Public eval.</td></tr>
+    <tr><td>Low bandwidth, basic devices</td><td>USSD on any GSM phone, zero data. Every screen under 160 characters. One machine always warm so no cold start eats the session.</td></tr>
+    <tr><td>Accessibility and inclusion</td><td>Numbered menus, at most one free-text step, plain ASCII so it renders on any handset.</td></tr>
+    <tr><td>Privacy and security</td><td>Phone numbers salted-hashed before storage. No names. Five-report threshold before anything is visible. 90-day purge.</td></tr>
+    <tr><td>Multilingual access</td><td>English, French, Arabic, Portuguese, Kiswahili, Hausa, Yoruba, Igbo, plus <b>Other</b>: type any language and the interface is localised on the spot and cached.</td></tr>
+    <tr><td>Local relevance</td><td>Countries, areas, contacts and notices are data files. Six countries, 27 areas seeded.</td></tr>
+    <tr><td>Clear next steps</td><td>A mandatory "What to do" line on every item. Emergency contact shown the moment a safety report is filed.</td></tr>
+  </table>
+  <div class="foot"><span>Gaskiya · Constraints</span><span>7</span></div>
+</section>
+
+<!-- 8. Scalability -->
+<section class="slide dark">
+  <p class="kicker">Scalability</p>
+  <h2>Countries are data. Gateways are adapters.</h2>
+  <div class="cols c3">
+    <div class="card"><div class="num">6</div><div class="label">countries seeded</div><p class="muted" style="font-size:17px; margin-top:10px;">Nigeria, Kenya, DR Congo, Sudan, Mozambique, Mali. 27 areas. Adding one is a JSON edit and a translation run.</p></div>
+    <div class="card"><div class="num">9</div><div class="label">language options</div><p class="muted" style="font-size:17px; margin-top:10px;">Eight fixed packs generated offline. "Other" is translated live the first time a language is asked for, then cached for everyone after.</p></div>
+    <div class="card"><div class="num">2</div><div class="label">gateway adapters</div><p class="muted" style="font-size:17px; margin-top:10px;">Qrios (live) and an Africa's Talking-style plain-text endpoint. A new gateway is about ten lines. The state machine never changes.</p></div>
+  </div>
+  <div class="cols c2" style="margin-top:36px;">
+    <div class="card">
+      <h3>Live on a real network today</h3>
+      <p class="muted" style="font-size:18px;">Provisioned on Qrios and reachable on MTN, Glo and 9mobile across Nigeria. Deployed on Fly.io with persistent storage. This is not a simulator demo; the screenshot on the cover is a phone.</p>
+    </div>
+    <div class="card">
+      <h3>Cheap to run</h3>
+      <p class="muted" style="font-size:18px;">All content is pre-generated. Only two things call the model inside a session: the rumour check (about a second) and the first request for a new language. Everything else is a lookup.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Gaskiya · Scalability</span><span>8</span></div>
+</section>
+
+<!-- 9. AI usage -->
+<section class="slide">
+  <p class="kicker">AI usage</p>
+  <h2>AI built it, AI runs inside it, and the failures were caught</h2>
+  <div class="cols c3">
+    <div class="card">
+      <h3>Built with Claude Code</h3>
+      <p class="muted" style="font-size:17px;">One person, one day. The assistant read the Qrios OpenAPI spec and implemented the exact callback protocol, wrote the state machine, adapters, dashboard, simulator, generator, eval and tests, and drove full sessions over HTTP before any UI existed.</p>
+    </div>
+    <div class="card">
+      <h3>DeepSeek Flash inside</h3>
+      <p class="muted" style="font-size:17px;">JSON-mode calls validated against schemas. Localises strings and notices into eight languages offline. Live: the rumour verdict and on-demand languages. After the reply: report triage. It never publishes and never sees a phone number.</p>
+    </div>
+    <div class="card">
+      <h3>What went wrong, and the fix</h3>
+      <p class="muted" style="font-size:17px;">First generation run: most items came back empty. Cause: the model's chain-of-thought was on by default and ate the token budget. Fix: thinking off, retries, resume. Then "Arabic" drifted into Hausa for Nigerian notices. Fix: unambiguous language prompts and a drift check. Both are documented in the repo.</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:30px;">
+    <p class="muted" style="font-size:18px;"><b style="color:var(--ink)">Guard rails over trust.</b> ASCII-only output for GSM handsets, length budgets per screen, placeholder integrity checks, non-empty field checks, a hard "cite a real notice or say UNVERIFIED" rule enforced in code, and a 40-claim eval anyone can rerun with <span class="code">npm run eval</span>.</p>
+  </div>
+  <div class="foot"><span>Gaskiya · AI usage &nbsp;·&nbsp; Full write-up: AI_USAGE.md in the repository</span><span>9</span></div>
+</section>
+
+<!-- 10. Impact & next -->
+<section class="slide dark">
+  <p class="kicker">Impact and what comes next</p>
+  <h2>From proof of concept to a line a community relies on</h2>
+  <div class="cols c2">
+    <div>
+      <h3 style="color:var(--amber)">Next 90 days</h3>
+      <ul class="muted">
+        <li>Daily ingestion of official feeds (state governments, NCDC, NEMA, OCHA, INEC) into the same item shape, replacing sample content.</li>
+        <li>A pilot with one state peace commission or protection cluster as moderators, starting with Kano or Plateau.</li>
+        <li>Notices, not only menus, translated on demand for "Other" languages.</li>
+        <li>SMS fallback for anyone whose session drops mid-read.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color:var(--amber)">Why it matters</h3>
+      <ul class="muted">
+        <li>A rumour answered in a second, in Hausa, with a source, is a rumour that does not move a neighbourhood.</li>
+        <li>A report that becomes a verified notice by evening closes the loop most reporting tools leave open.</li>
+        <li>It runs on the phone people already own, on the network they already use, at no data cost.</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:40px; display:flex; gap:40px; align-items:center;">
+    <div class="big-code" style="font-size:44px;">*425*078#</div>
+    <div class="muted" style="font-size:17px; line-height:1.5;">
+      Live: <b style="color:#f3efe2">gaskiya.fly.dev</b> &nbsp;(simulator and moderator desk)<br>
+      Code: <b style="color:#f3efe2">github.com/devgoks/gaskiya</b><br>
+      Olamigoke Olabampe · OSF x Andela Hackathon 2026
+    </div>
+  </div>
+  <div class="foot"><span>Gaskiya · Truth is worth more than a penny</span><span>10</span></div>
+</section>
+
+<script>
+// Preview helper: deck.html#4 shows only slide 4 (used to screenshot slides without a PDF renderer).
+(function(){var n=parseInt(location.hash.slice(1),10);if(!n)return;document.querySelectorAll(".slide").forEach(function(s,i){if(i!==n-1)s.style.display="none";});})();
+</script>
+</body>
+</html>
