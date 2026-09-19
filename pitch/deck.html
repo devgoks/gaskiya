@@ -120,7 +120,6 @@
       </ul>
     </div>
   </div>
-  <p class="muted" style="margin-top:22px; font-size:17px;">Seeded for the partner geographies: Nigeria, Kenya, DR Congo, Sudan, Mozambique and Mali. 27 areas today. Adding one is a data-file edit.</p>
   <div class="foot"><span>Gaskiya · Users</span><span>3</span></div>
 </section>
 
@@ -154,6 +153,39 @@
   <div class="foot"><span>Gaskiya · Solution &nbsp;·&nbsp; Notices in the demo are sample content modelled on real institutional notices; production uses a daily ingestion job.</span><span>4</span></div>
 </section>
 
+<!-- 4b. Solution, English -->
+<section class="slide">
+  <p class="kicker">The solution, continued</p>
+  <h2>The same paper in English, for Lagos</h2>
+  <div class="cols c3" style="gap:26px;">
+    <div class="ussd">Gaskiya Lagos
+1 Today for my area
+2 Sections
+3 Check something you heard
+4 Report what you are seeing
+5 Help contacts
+6 My reports
+7 Language / area<small>Main menu · English · 148 characters · as on the cover photo</small></div>
+    <div class="ussd">Today 19 Sept
+1 Lagos flood alert 19 to 21 Sep
+2 NIN-SIM linking deadline 30 Sep
+3 Cholera advisory in 5 states
+0 Menu<small>Front page for Lagos · local alert first, national notices after</small></div>
+    <div class="ussd">Lagos flood alert 19 to 21 Sep. NiMet forecasts heavy rain across Lagos from Friday 19 to Sunday 21 September. (1/5)
+1 More
+0 Menu<small>Item page 1 of 5</small></div>
+  </div>
+  <div class="cols c2" style="gap:26px; margin-top:26px;">
+    <div class="ussd">What to do: Call LASEMA on 767 or 112 if trapped. Move to higher ground early if your street flooded in July. (4/5)
+1 More
+0 Menu<small>The next step, always its own line</small></div>
+    <div class="ussd">Source: NiMet weather advisory / LASEMA, 17 Sept. (5/5)
+9 Back
+0 Menu<small>The last page names the source and its date</small></div>
+  </div>
+  <div class="foot"><span>Gaskiya · Solution &nbsp;·&nbsp; Same state machine, same content store, only the language pack changed. A user picks a language once and it is remembered for their number.</span><span>5</span></div>
+</section>
+
 <!-- 5. The loop -->
 <section class="slide">
   <p class="kicker">More than presenting information</p>
@@ -172,7 +204,7 @@
 1 Help contacts
 0 Menu<small>Report received · 145 characters</small></div>
   </div>
-  <div class="foot"><span>Gaskiya · The loop</span><span>5</span></div>
+  <div class="foot"><span>Gaskiya · The loop</span><span>6</span></div>
 </section>
 
 <!-- 6. Trust -->
@@ -200,7 +232,7 @@
       <p class="muted" style="font-size:15px; margin-top:12px;">The one miss was the safe kind: an UNVERIFIED where NOT TRUE was justified. <span class="code">npm run eval</span> reproduces it.</p>
     </div>
   </div>
-  <div class="foot"><span>Gaskiya · Trust</span><span>6</span></div>
+  <div class="foot"><span>Gaskiya · Trust</span><span>7</span></div>
 </section>
 
 <!-- 7. Constraints -->
@@ -217,7 +249,7 @@
     <tr><td>Local relevance</td><td>Countries, areas, contacts and notices are data files. Six countries, 27 areas seeded.</td></tr>
     <tr><td>Clear next steps</td><td>A mandatory "What to do" line on every item. Emergency contact shown the moment a safety report is filed.</td></tr>
   </table>
-  <div class="foot"><span>Gaskiya · Constraints</span><span>7</span></div>
+  <div class="foot"><span>Gaskiya · Constraints</span><span>8</span></div>
 </section>
 
 <!-- 8. Scalability -->
@@ -239,7 +271,7 @@
       <p class="muted" style="font-size:18px;">All content is pre-generated. Only two things call the model inside a session: the rumour check (about a second) and the first request for a new language. Everything else is a lookup.</p>
     </div>
   </div>
-  <div class="foot"><span>Gaskiya · Scalability</span><span>8</span></div>
+  <div class="foot"><span>Gaskiya · Scalability</span><span>9</span></div>
 </section>
 
 <!-- 9. AI usage -->
@@ -263,7 +295,7 @@
   <div class="card" style="margin-top:30px;">
     <p class="muted" style="font-size:18px;"><b style="color:var(--ink)">Guard rails over trust.</b> ASCII-only output for GSM handsets, length budgets per screen, placeholder integrity checks, non-empty field checks, a hard "cite a real notice or say UNVERIFIED" rule enforced in code, and a 40-claim eval anyone can rerun with <span class="code">npm run eval</span>.</p>
   </div>
-  <div class="foot"><span>Gaskiya · AI usage &nbsp;·&nbsp; Full write-up: AI_USAGE.md in the repository</span><span>9</span></div>
+  <div class="foot"><span>Gaskiya · AI usage &nbsp;·&nbsp; Full write-up: AI_USAGE.md in the repository</span><span>10</span></div>
 </section>
 
 <!-- 10. Impact & next -->
@@ -297,7 +329,7 @@
       Olamigoke Olabampe · OSF x Andela Hackathon 2026
     </div>
   </div>
-  <div class="foot"><span>Gaskiya · Truth is worth more than a penny</span><span>10</span></div>
+  <div class="foot"><span>Gaskiya · Truth is worth more than a penny</span><span>11</span></div>
 </section>
 
 <script>
